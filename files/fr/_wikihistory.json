@@ -36451,23 +36451,6 @@
       "jcbita"
     ]
   },
-  "Web/HTML/Using_the_application_cache": {
-    "modified": "2020-10-15T21:07:42.579Z",
-    "contributors": [
-      "Qouagga",
-      "SphinxKnight",
-      "Surfoo",
-      "personnel",
-      "cdromain",
-      "Gillespie59",
-      "Tioneb",
-      "bvauchelle",
-      "teoli",
-      "michaelch",
-      "rd6137",
-      "whoshallsucceed"
-    ]
-  },
   "Web/Media/DASH_Adaptive_Streaming_for_HTML_5_Video": {
     "modified": "2020-02-21T13:42:34.237Z",
     "contributors": [
@@ -46001,6 +45984,23 @@
     "contributors": [
       "Hell_Carlito",
       "jucrouzet"
+    ]
+  },
+  "orphaned/Web/HTML/Using_the_application_cache": {
+    "modified": "2020-10-15T21:07:42.579Z",
+    "contributors": [
+      "Qouagga",
+      "SphinxKnight",
+      "Surfoo",
+      "personnel",
+      "cdromain",
+      "Gillespie59",
+      "Tioneb",
+      "bvauchelle",
+      "teoli",
+      "michaelch",
+      "rd6137",
+      "whoshallsucceed"
     ]
   }
 }
