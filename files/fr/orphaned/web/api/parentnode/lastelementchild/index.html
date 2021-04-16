@@ -1,27 +1,28 @@
 ---
 title: ParentNode.lastElementChild
-slug: Web/API/ParentNode/lastElementChild
+slug: orphaned/Web/API/ParentNode/lastElementChild
 tags:
   - API
   - DOM
-  - ParentNode
-  - Property
-  - Reference
+  - Noeuds
+  - Propriétés
+  - parent
 translation_of: Web/API/ParentNode/lastElementChild
+original_slug: Web/API/ParentNode/lastElementChild
 ---
 <p>{{ APIRef("DOM") }}</p>
 
-<p><code><strong>Свойство ParentNode.lastElementChild</strong></code> только для чтения. Возвращает последний дочерний элемент объекта или <code>null</code> если нет дочерних элементов.</p>
+<p>La propriété en lecture seule <code><strong>ParentNode.lastElementChild</strong></code>  renvoie  le dernier enfant de l'objet {{domxref("Element")}} ou <code>null</code> s'il n'y a pas d'élément enfant.</p>
 
 <div class="note">
-<p>This property was initially defined in the {{domxref("ElementTraversal")}} pure interface. As this interface contained two distinct set of properties, one aimed at {{domxref("Node")}} that have children, one at those that are children, they have been moved into two separate pure interfaces, {{domxref("ParentNode")}} and {{domxref("ChildNode")}}. In this case, <code>lastElementChild</code> moved to {{domxref("ParentNode")}}. This is a fairly technical change that shouldn't affect compatibility.</p>
+<p>Cette propriiété a été définie initialement dans la pure interface {{domxref("ElementTraversal")}}. Comme cette interface contenait deux différents jeux de propriétés, l'un visant les  {{domxref("Node")}} (<em>noeuds</em>) qui ont des enfants, l'autre les enfants, ils ont été déplacés dans deux interfaces pures, {{domxref("ParentNode")}} et {{domxref("ChildNode")}}. Dans ce cas, <code>childElementCount</code> a été rattaché à {{domxref("ParentNode")}}. C'est un changement assez technique qui ne devrait pas affecter la compatibilité.</p>
 </div>
 
-<h2 id="Syntax_and_values" name="Syntax_and_values">Синтаксис</h2>
+<h2 id="Syntax_and_values" name="Syntax_and_values">Syntaxe</h2>
 
 <pre class="syntaxbox">var <em>element</em> = node.lastElementChild; </pre>
 
-<h2 id="Example" name="Example">Пример</h2>
+<h2 id="Example" name="Example">Exemple</h2>
 
 <pre class="brush: html">&lt;ul id="foo"&gt;
   &lt;li&gt;First  (1)&lt;/li&gt;
@@ -31,16 +32,16 @@ translation_of: Web/API/ParentNode/lastElementChild
 
 &lt;script&gt;
 var foo = document.getElementById('foo');
-// yields: Third  (3)
+// produit : Third  (3)
 console.log(foo.lastElementChild.textContent);
 &lt;/script&gt;
 </pre>
 
 <h2 id="Polyfill_for_IE8_IE9_and_Safari">Polyfill for IE8, IE9 and Safari</h2>
 
-<pre class="brush: js">// Overwrites native 'lastElementChild' prototype.
-// Adds Document &amp; DocumentFragment support for IE9 &amp; Safari.
-// Returns array instead of HTMLCollection.
+<pre class="brush: js">// Remplace le prototype "lastElementChild" natif.
+// Ajout de Document &amp; DocumentFragment pris en charge pour IE9 &amp; Safari.
+// Renvoie un tableau (array) à la place de HTMLCollection.
 ;(function(constructor) {
     if (constructor &amp;&amp;
         constructor.prototype &amp;&amp;
@@ -60,30 +61,30 @@ console.log(foo.lastElementChild.textContent);
 })(window.Node || window.Element);
 </pre>
 
-<h2 id="Спецификация">Спецификация</h2>
+<h2 id="Spécification">Spécification</h2>
 
 <table class="standard-table">
  <tbody>
   <tr>
-   <th scope="col">Specification</th>
-   <th scope="col">Status</th>
-   <th scope="col">Comment</th>
+   <th scope="col">Spécification</th>
+   <th scope="col">Statut</th>
+   <th scope="col">Commentaire</th>
   </tr>
   <tr>
    <td>{{SpecName('DOM WHATWG', '#dom-parentnode-lastelementchild', 'ParentNode.lastElementChild')}}</td>
    <td>{{Spec2('DOM WHATWG')}}</td>
-   <td>Splitted the <code>ElementTraversal</code> interface in {{domxref("ChildNode")}} and <code>ParentNode</code>. This method is now defined on the latter.<br>
-    The {{domxref("Document")}} and {{domxref("DocumentFragment")}} implemented the new interfaces.</td>
+   <td>Divise l'interface <code>ElementTraversal</code> en {{domxref("ChildNode")}} et <code>ParentNode</code>. La propriété est maintenant définie sur cette dernière.<br>
+    Les {{domxref("Document")}} et {{domxref("DocumentFragment")}} implémentent la nouvelle interface.</td>
   </tr>
   <tr>
    <td>{{SpecName('Element Traversal', '#attribute-lastElementChild', 'ElementTraversal.lastElementChild')}}</td>
    <td>{{Spec2('Element Traversal')}}</td>
-   <td>Added its initial definition to the <code>ElementTraversal</code> pure interface and use it on {{domxref("Element")}}.</td>
+   <td>Ajout de sa définition initiale à la pure interface <code>ElementTraversal</code> et de son utilisation sur {{domxref("Element")}}.</td>
   </tr>
  </tbody>
 </table>
 
-<h2 id="Совместимость_с_браузерами">Совместимость с браузерами</h2>
+<h2 id="Compatibilité_des_navigateurs">Compatibilité des navigateurs</h2>
 
 <p>{{ CompatibilityTable() }}</p>
 
@@ -91,7 +92,7 @@ console.log(foo.lastElementChild.textContent);
 <table class="compat-table">
  <tbody>
   <tr>
-   <th>Feature</th>
+   <th>Fonctionnalité</th>
    <th>Chrome</th>
    <th>Firefox (Gecko)</th>
    <th>Internet Explorer</th>
@@ -122,7 +123,7 @@ console.log(foo.lastElementChild.textContent);
 <table class="compat-table">
  <tbody>
   <tr>
-   <th>Feature</th>
+   <th>Fonctionnalité</th>
    <th>Android</th>
    <th>Firefox Mobile (Gecko)</th>
    <th>IE Mobile</th>
@@ -149,13 +150,13 @@ console.log(foo.lastElementChild.textContent);
 </table>
 </div>
 
+<p> </p>
 
-
-<h2 id="Так_же_смотрите">Так же смотрите</h2>
+<h2 id="Voir_aussi">Voir aussi</h2>
 
 <ul>
- <li>The {{domxref("ParentNode")}} and {{domxref("ChildNode")}} pure interfaces.</li>
+ <li>Les interfaces pures {{domxref("ParentNode")}} et {{domxref("ChildNode")}}.</li>
  <li>
-  <div class="syntaxbox">Object types implementing this pure interface: {{domxref("Document")}}, {{domxref("Element")}}, and {{domxref("DocumentFragment")}}.</div>
+  <div class="syntaxbox">Types d'objets implémentant cette interface pure : {{domxref("Document")}}, {{domxref("Element")}} et {{domxref("DocumentFragment")}}.</div>
  </li>
 </ul>
