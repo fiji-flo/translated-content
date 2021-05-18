@@ -15852,12 +15852,6 @@
       "Takenbot"
     ]
   },
-  "Web/API/ElementTraversal": {
-    "modified": "2019-03-18T21:39:02.443Z",
-    "contributors": [
-      "loella16"
-    ]
-  },
   "Web/API/Encoding_API": {
     "modified": "2020-10-15T22:21:39.244Z",
     "contributors": [
@@ -19362,27 +19356,6 @@
     "modified": "2019-03-23T22:01:56.477Z",
     "contributors": [
       "Watilin"
-    ]
-  },
-  "Web/API/ParentNode": {
-    "modified": "2020-10-15T21:33:02.872Z",
-    "contributors": [
-      "abvll",
-      "loella16",
-      "fscholz"
-    ]
-  },
-  "Web/API/ParentNode/querySelector": {
-    "modified": "2020-10-15T22:30:52.578Z",
-    "contributors": [
-      "NeaVy"
-    ]
-  },
-  "Web/API/ParentNode/querySelectorAll": {
-    "modified": "2020-10-15T22:02:32.472Z",
-    "contributors": [
-      "abvll",
-      "loella16"
     ]
   },
   "Web/API/PasswordCredential": {
@@ -45760,6 +45733,12 @@
       "loella16"
     ]
   },
+  "orphaned/Web/API/ElementTraversal": {
+    "modified": "2019-03-18T21:39:02.443Z",
+    "contributors": [
+      "loella16"
+    ]
+  },
   "orphaned/Web/API/Entity": {
     "modified": "2019-03-18T21:40:22.544Z",
     "contributors": [
@@ -45788,6 +45767,14 @@
     "modified": "2019-03-18T21:40:13.820Z",
     "contributors": [
       "loella16"
+    ]
+  },
+  "orphaned/Web/API/ParentNode": {
+    "modified": "2020-10-15T21:33:02.872Z",
+    "contributors": [
+      "abvll",
+      "loella16",
+      "fscholz"
     ]
   },
   "orphaned/Web/API/ParentNode/append": {
@@ -45830,6 +45817,19 @@
     "contributors": [
       "Yukulele.",
       "Seblor",
+      "loella16"
+    ]
+  },
+  "orphaned/Web/API/ParentNode/querySelector": {
+    "modified": "2020-10-15T22:30:52.578Z",
+    "contributors": [
+      "NeaVy"
+    ]
+  },
+  "orphaned/Web/API/ParentNode/querySelectorAll": {
+    "modified": "2020-10-15T22:02:32.472Z",
+    "contributors": [
+      "abvll",
       "loella16"
     ]
   },
