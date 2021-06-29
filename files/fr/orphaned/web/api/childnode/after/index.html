@@ -1,90 +1,90 @@
 ---
 title: ChildNode.after()
-slug: Web/API/ChildNode/after
+slug: orphaned/Web/API/ChildNode/after
 tags:
   - API
   - DOM
-  - Experimental
-  - Nó
-  - Referencia
-  - metodo
+  - Méthode
+  - Noeud
+  - Reference
 translation_of: Web/API/ChildNode/after
+original_slug: Web/API/ChildNode/after
 ---
-<div>{{APIRef("DOM")}} {{SeeCompatTable}}</div>
+<div>{{APIRef ("DOM")}} {{SeeCompatTable}}</div>
 
-<p>The <code><strong>ChildNode</strong></code><strong><code>.after()</code></strong> method inserts a set of {{domxref("Node")}} or {{domxref("DOMString")}} objects in the children list of this <code>ChildNode</code>'s parent, just after this <code>ChildNode</code>. {{domxref("DOMString")}} objects are inserted as equivalent {{domxref("Text")}} nodes.</p>
+<div>La méthode <code><strong>ChildNode.after ()</strong></code> insère un ensemble d'objets {{domxref ("Node")}} ou {{domxref ("DOMString")}} dans la liste des enfants de ce parent de ChildNode, juste après ce ChildNode. Les objets {{domxref ("DOMString")}} sont insérés comme des noeuds {{domxref ("Text")}} équivalents.</div>
 
-<h2 id="Sintaxe">Sintaxe</h2>
+<h2 id="Syntaxe">Syntaxe</h2>
 
 <pre class="syntaxbox">[Throws, Unscopable]
 void ChildNode.after((Node or DOMString)... nodes);
 </pre>
 
-<h3 id="Parâmetros">Parâmetros</h3>
+<h3 id="Paramètres">Paramètres</h3>
 
 <dl>
- <dt><code>nós</code></dt>
- <dd>A set of {{domxref("Node")}} or {{domxref("DOMString")}} objects to insert.</dd>
+ <dt><code>nodes</code></dt>
+ <dd>Un ensemble d'objets {{domxref ("Node")}} ou {{domxref ("DOMString")}} à insérer.</dd>
 </dl>
 
-<h3 id="Exceções">Exceções</h3>
+<h3 id="Exceptions">Exceptions</h3>
 
 <ul>
- <li>{{domxref("HierarchyRequestError")}}: Nó não pode ser inserido até que seja especificado o ponto da hierarquia. </li>
+ <li>{{Domxref ("HierarchyRequestError")}} : Le noeud ne peut pas être inséré au point spécifié dans la hiérarchie.</li>
 </ul>
 
-<h2 id="Exemplos">Exemplos</h2>
+<h2 id="Exemples">Exemples</h2>
 
-<h3 id="Inserindo_uum_elemento">Inserindo uum elemento</h3>
+<h3 id="Insertion_d'un_élément">Insertion d'un élément</h3>
 
-<pre class="brush: js">var parente = document.createElement("div");
-var filho = document.createElement("p");
-parente.appendChild(filho);
+<pre class="brush: js">var parent = document.createElement("div");
+var child = document.createElement("p");
+parent.appendChild(child);
 var span = document.createElement("span");
 
-filho.after(span);
+child.after(span);
 
-console.log(parente.outerHTML);
+console.log(parent.outerHTML);
 // "&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;"
 </pre>
 
-<h3 id="Inserindo_texto">Inserindo texto</h3>
+<h3 id="Insertion_d'un_texte">Insertion d'un texte</h3>
 
-<pre class="brush: js">var parente = document.createElement("div");
-var filho = document.createElement("p");
-parente.appendChild(filho);
+<pre class="brush: js">var parent = document.createElement("div");
+var child = document.createElement("p");
+parent.appendChild(child);
 
-filho.after("Text");
+child.after("Text");
 
-console.log(parente.outerHTML);
-// "&lt;div&gt;&lt;p&gt;&lt;/p&gt;Text&lt;/div&gt;"</pre>
+console.log(parent.outerHTML);
+// "&lt;div&gt;&lt;p&gt;&lt;/p&gt;Texte&lt;/div&gt;"</pre>
 
-<h3 id="Inserindo_um_elemento_e_um_texto">Inserindo um elemento e um texto </h3>
+<h3 id="Insertion_d'un_élément_et_de_texte">Insertion d'un élément et de  texte</h3>
 
-<pre class="brush: js">var parente = document.createElement("div");
-var filho = document.createElement("p");
-parente.appendChild(filho);
+<pre class="brush: js">var parent = document.createElement("div");
+var child = document.createElement("p");
+parent.appendChild(child);
 var span = document.createElement("span");
 
-filho.after(span, "Text");
+child.after(span, "Text");
 
-console.log(parente.outerHTML);
-// "&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;Text&lt;/div&gt;"</pre>
+console.log(parent.outerHTML);
+// "&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;Texte&lt;/div&gt;"</pre>
 
-<h3 id="ChildNode.after()_is_unscopable"><code>ChildNode.after()</code> is unscopable</h3>
+<h3 id="ChildNode.after()_n'est_pas_accessible"><code>ChildNode.after()</code> n'est pas accessible</h3>
 
-<p>The <code>after()</code> method is not scoped into the <code>with</code> statement. Veja {{jsxref("Symbol.unscopables")}} para maior infomação.</p>
+<p>La méthode <code>after()</code> <span class="short_text" id="result_box" lang="fr"><span>n'est pas compris dans l'instruction </span></span><code>with</code> . Voir {{jsxref("Symbol.unscopables")}} pour plus d'informations.</p>
 
 <pre class="brush: js">with(node) {
   after("foo");
 }
-// ReferenceError: after is not defined </pre>
+// ReferenceError: after n'est pas défini </pre>
 
 <h2 id="Polyfill">Polyfill</h2>
 
-<p>Você pode usar polyfill com  o método <code> after() </code> no Internet Explorer 9 e com o seguinte código:</p>
+<p>Vous pouvez appliquer la méthode <code>after()</code> dans Internet Explorer 9 et plus haut avec le code suivant :</p>
 
-<pre class="brush: js">//from: https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/after()/after().md
+<pre class="brush: js">//de : https://github.com/jserz/js_piece/blob/master/DOM/ChildNode/after()/after().md
 (function (arr) {
   arr.forEach(function (item) {
     if (item.hasOwnProperty('after')) {
@@ -153,33 +153,31 @@ min:
 
 <h3 id="sect1"> </h3>
 
-<h2 id="Especificação">Especificação</h2>
+<h2 id="Spécification">Spécification</h2>
 
 <table class="standard-table">
  <tbody>
   <tr>
-   <th scope="col">Especificação</th>
-   <th scope="col">Status</th>
-   <th scope="col">Comentário</th>
+   <th scope="col">Spécification</th>
+   <th scope="col">Statut</th>
+   <th scope="col">Commentaire</th>
   </tr>
   <tr>
    <td>{{SpecName('DOM WHATWG', '#dom-childnode-after', 'ChildNode.after()')}}</td>
    <td>{{Spec2('DOM WHATWG')}}</td>
-   <td>Initial definition.</td>
+   <td>Définition initiale.</td>
   </tr>
  </tbody>
 </table>
 
-<h2 id="Navegador_compatível">Navegador compatível</h2>
-
-<div class="hidden">A compatibilidade table sobre esta página é gerada a partir da estruta de dado. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+<h2 id="Compatibilité_des_navigateurs">Compatibilité des navigateurs</h2>
 
 <p>{{Compat("api.ChildNode.after")}}</p>
 
-<h2 id="Veja_mais">Veja mais</h2>
+<h2 id="Voir_aussi">Voir aussi</h2>
 
 <ul>
- <li>{{domxref("ChildNode")}} and {{domxref("ParentNode")}}</li>
+ <li>{{domxref("ChildNode")}} et {{domxref("ParentNode")}}</li>
  <li>{{domxref("ChildNode.before()")}}</li>
  <li>{{domxref("ParentNode.append()")}}</li>
  <li>{{domxref("Node.appendChild()")}}</li>
