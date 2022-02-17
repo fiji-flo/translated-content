@@ -1,26 +1,29 @@
 ---
-title: IDBDatabase.onabort
-slug: Web/API/IDBDatabase/onabort
+title: IDBDatabase.onversionchange
+slug: Web/API/IDBDatabase/versionchange_event
 tags:
   - API
   - IndexedDB
   - Propriété
   - Reference
-translation_of: Web/API/IDBDatabase/onabort
+translation_of: Web/API/IDBDatabase/onversionchange
+original_slug: Web/API/IDBDatabase/onversionchange
 ---
 <div>{{APIRef("IndexedDB")}}</div>
 
-<p>Le gestionnaire d'événement <strong><code>onabort</code></strong>, rattaché à l'interface {{domxref("IDBDatabase")}}, s'exécute au déclenchement de l'événement <code>abort</code>, lorsque la tentative d’accès à la base de données est interrompue.</p>
+<p>Le gestionnaire d'événement <strong><code>onversionchange</code></strong>, rattaché à l'interface {{domxref("IDBDatabase")}}, s’exécute au déclenchement de l'événement <code>versionchange</code> qui se produit lorsque la structure de la base de donnée change (l'événement {{domxref("IDBOpenDBRequest.onupgradeneeded")}} ou {{domxref("IDBFactory.deleteDatabase")}} a été demandé par ailleurs (probablement dans une autre fenêtre ou onglet sur le même ordinateur)).</p>
+
+<p>Cela n'est pas la même chose qu'une transaction <code>versionchange</code> (bien que les concepts soient apparentés).</p>
 
 <p>{{AvailableInWorkers}}</p>
 
 <h2 id="Syntaxe">Syntaxe</h2>
 
-<pre class="brush: js">db.onabort = function() { ... }</pre>
+<pre class="brush: js">db.onversionchange = function() { ... }</pre>
 
 <h2 id="Exemple">Exemple</h2>
 
-<p>Cette exemple illustre un gestionnaire d'événement {{domxref("IDBOpenDBRequest.onupgradeneeded")}} dans lequel on ajoute un magasin d'objet et les deux gestionnaires d'événement <code>onerror</code> et <code>onabort</code> pour gérer les cas d'échec.</p>
+<p>Cette exemple illustre un gestionnaire d'événement {{domxref("IDBOpenDBRequest.onupgradeneeded")}} dans lequel on ajoute un magasin d'objets. Les deux gestionnaires d'événements <code>onerror</code> et <code>onabort</code> sont utilisés pour les cas d'échec. Le gestionnaire d'événement <code>onversionchange</code> est utilisé afin d'indiquer que la structure de la base de données a été modifiée.</p>
 
 <pre class="brush: js">DBOpenRequest.onupgradeneeded = function(event) {
   var db = event.target.result;
@@ -33,11 +36,11 @@ translation_of: Web/API/IDBDatabase/onabort
     note.innerHTML += '&lt;li&gt;L\'ouverture de la connexion à été annulée !&lt;/li&gt;';
   };
 
-  // On ajoute un magasin d'objet à la base de données
+  // Ajoute un magasin d'objets à la base de données
 
   var objectStore = db.createObjectStore("toDoList", { keyPath: "taskTitle" });
 
-  // On définit les index du magasin
+  // Définition des index
 
   objectStore.createIndex("hours", "hours", { unique: false });
   objectStore.createIndex("minutes", "minutes", { unique: false });
@@ -47,7 +50,11 @@ translation_of: Web/API/IDBDatabase/onabort
 
   objectStore.createIndex("notified", "notified", { unique: false });
 
-  note.innerHTML += '&lt;li&gt;Le magasin d\'objets à été ajouté.&lt;/li&gt;';
+  note.innerHTML += '&lt;li&gt;Le magasin d\'objet à été ajouté.&lt;/li&gt;';
+
+  db.onversionchange = function(event) {
+    note.innerHTML += '&lt;li&gt;Des changements ont été appliqués sur la base de données. Vous devez réactualiser cette page ou la fermer et utiliser l\'autre version de cette application qui est ouverte.&lt;/li&gt;';
+  };
 };</pre>
 
 <h2 id="Spécifications">Spécifications</h2>
@@ -60,14 +67,14 @@ translation_of: Web/API/IDBDatabase/onabort
    <th scope="col">Commentaires</th>
   </tr>
   <tr>
-   <td>{{SpecName('IndexedDB', '#widl-IDBDatabase-onabort', 'onabort')}}</td>
+   <td>{{SpecName('IndexedDB', '#widl-IDBDatabase-onversionchange', 'onversionchange')}}</td>
    <td>{{Spec2('IndexedDB')}}</td>
    <td> </td>
   </tr>
  </tbody>
 </table>
 
-<h2 id="Compatibilité_avec_les_navigateurs">Compatibilité avec les navigateurs</h2>
+<h2 id="Compatibilité_des_navigateurs">Compatibilité des navigateurs</h2>
 
 <div>{{CompatibilityTable}}</div>
 
@@ -75,7 +82,7 @@ translation_of: Web/API/IDBDatabase/onabort
 <table class="compat-table">
  <tbody>
   <tr>
-   <th>Foncionnalité</th>
+   <th>Fonctionnalité</th>
    <th>Chrome</th>
    <th>Firefox (Gecko)</th>
    <th>Internet Explorer</th>
@@ -88,7 +95,7 @@ translation_of: Web/API/IDBDatabase/onabort
     24</td>
    <td>10 {{property_prefix("moz")}}<br>
     {{CompatGeckoDesktop("16.0")}}</td>
-   <td>10, en partie</td>
+   <td>10, partial</td>
    <td>15</td>
    <td>7.1</td>
   </tr>
@@ -117,7 +124,7 @@ translation_of: Web/API/IDBDatabase/onabort
    <th>Safari Mobile</th>
   </tr>
   <tr>
-   <td>Support simple</td>
+   <td>Support basique</td>
    <td>4.4</td>
    <td>{{CompatGeckoMobile("22.0")}}</td>
    <td>1.0.1</td>
